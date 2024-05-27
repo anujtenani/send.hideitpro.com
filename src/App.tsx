@@ -277,6 +277,7 @@ function InternalApp({room}:{room: string}) {
                                className={"squircle"}
                                style={{width:64, height:64}} /></span>
                 </div>
+                <hr className={"border-b py-2 border-b-gray-300"}/>
                 <div className="flex justify-between">
                     <div>
                         <h2 className={"text-2xl"}>Step 1</h2>
