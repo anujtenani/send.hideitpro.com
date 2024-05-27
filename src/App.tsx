@@ -258,12 +258,25 @@ function InternalApp({room}:{room: string}) {
         }
         // Do something with the files
     }, [])
-    const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop, multiple: true});
+    const {getRootProps, getInputProps, isDragActive} = useDropzone({
+        onDrop,
+        multiple: true,
+        accept: {
+            'image/*':['.png','.jpg','.jpeg','.gif','.webp'],
+            'video/*':['.mp4','.webm','.mov'],
+        },
+    });
     const [showQr, setShowQr] = useState(false)
   return (
     <div className={"bg-gray-200 min-h-screen"}>
-        <div className="container px-4 pt-4">
+        <div className="container mx-auto px-4 pt-4">
             <div style={{maxWidth: 400}} className={"mx-auto"}>
+                <div className="flex justify-between">
+                    <h1 className={"text-3xl"}>Send <small className={"text-lg"}>by Audio Manager</small></h1>
+                    <span><img src={"/android-chrome-192x192.png"}
+                               className={"squircle"}
+                               style={{width:64, height:64}} /></span>
+                </div>
                 <div className="flex justify-between">
                     <div>
                         <h2 className={"text-2xl"}>Step 1</h2>
@@ -289,12 +302,12 @@ function InternalApp({room}:{room: string}) {
                     {
                         connectedPeers.length === 0 ? <p className={"text-center animate-bounce"}>
                            Waiting for clients to connect
-                        </p> : <p>
+                        </p> : <div>
                             Connected clients
                             <ul>
                                 {
                                     connectedPeers.map((i)=>{
-                                        return <li className={"flex items-center gap-2"}>
+                                        return <li key={String(i.peerId)} className={"flex items-center gap-2"}>
                                             <span className="relative flex h-3 w-3">
                                               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
                                               <span className="relative inline-flex rounded-full h-3 w-3 bg-sky-500"></span>
@@ -303,7 +316,7 @@ function InternalApp({room}:{room: string}) {
                                     })
                                 }
                             </ul>
-                        </p>
+                        </div>
                     }
                 </div>
                 <div className="mt-6">

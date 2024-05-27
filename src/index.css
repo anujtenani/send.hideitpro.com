@@ -1,3 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+.squircle {
+    border-radius: 61% 39% 63% 37% / 39% 61% 37% 63%;
+}
