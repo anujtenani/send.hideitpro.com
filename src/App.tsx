@@ -272,12 +272,12 @@ function InternalApp({room}:{room: string}) {
         <div className="container mx-auto px-4 pt-4">
             <div style={{maxWidth: 400}} className={"mx-auto"}>
                 <div className="flex justify-between">
-                    <h1 className={"text-3xl"}>Send <small className={"text-lg"}>by Audio Manager</small></h1>
+                    <h1 className={"text-3xl"}>Send <small className={"text-lg text-gray-700"}>by Audio Manager</small></h1>
                     <span><img src={"/android-chrome-192x192.png"}
                                className={"squircle"}
                                style={{width:64, height:64}} /></span>
                 </div>
-                <hr className={"border-b py-2 border-b-gray-300"}/>
+                <hr className={"border-b py-2 mb-4 border-b-gray-300"}/>
                 <div className="flex justify-between">
                     <div>
                         <h2 className={"text-2xl"}>Step 1</h2>
